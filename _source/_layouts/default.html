@@ -1,44 +1,38 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-        <title>{{ page.title }}</title>
-        <meta name="viewport" content="width=device-width">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
+		<title>{{ site.name }}</title>
 
-        <!-- syntax highlighting CSS -->
-        <link rel="stylesheet" href="/css/syntax.css">
+		<!-- favicon -->
+		<link rel="shortcut icon" href="favicon.ico">
 
-        <!-- Custom CSS -->
-        <link rel="stylesheet" href="/css/main.css">
+		<!-- jquery mobile CSS -->
+		<link rel="stylesheet" href="css/themes/default/jquery.mobile-1.4.1.min.css">
 
-    </head>
-    <body>
+		<!-- fonts -->
+		<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open+Sans:300,400,700">
 
-        <div class="site">
-          <div class="header">
-            <h1 class="title"><a href="/">{{ site.name }}</a></h1>
-            <a class="extra" href="/">home</a>
-          </div>
+		<!-- jquery mobile JS -->
+		<script src="js/jquery.js"></script>
+		<script src="js/jquery.mobile-1.4.1.min.js"></script>
 
-          {{ content }}
+		<!-- app specific stuff -->
+		<!-- external panel -->
+		<script>
+			$( document ).on( "pagecreate", function() {
+				$( "body > [data-role='panel']" ).panel();
+				$( "body > [data-role='panel'] [data-role='listview']" ).listview();
+			});
+			$( document ).one( "pageshow", function() {
+				$( "body > [data-role='header']" ).toolbar();
+				$( "body > [data-role='header'] [data-role='navbar']" ).navbar();
+			});
+		</script>
+	</head>
 
-          <div class="footer">
-            <div class="contact">
-              <p>
-                Your Name<br />
-                What You Are<br />
-                you@example.com
-              </p>
-            </div>
-            <div class="contact">
-              <p>
-                <a href="https://github.com/yourusername">github.com/yourusername</a><br />
-                <a href="https://twitter.com/yourusername">twitter.com/yourusername</a><br />
-              </p>
-            </div>
-          </div>
-        </div>
-
-    </body>
+	<body>
+		{{ content }}
+	</body>
 </html>
