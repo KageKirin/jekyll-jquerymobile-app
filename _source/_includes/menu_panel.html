@@ -1,0 +1,12 @@
+<!-- external panel -->
+<div data-role="panel" id="outside" data-theme="b">
+	<h1>Menu panel</h1>
+	<ul data-role="listview">
+		<li data-icon="back"><a href="#" data-rel="close">Close</a></li>
+		<li><a href="#mainPage">Main page</a></li>
+		{% for post in site.posts %}
+		<li><a href="#{{ post.id | cgi_escape }}">{{ post.title }}</a></li>
+		{% endfor %}
+	</ul>
+</div>
+<!-- end external panel -->

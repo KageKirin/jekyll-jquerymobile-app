@@ -1,0 +1,17 @@
+<!-- post -->
+	<div data-role="page" class="" id="{{ post.id | cgi_escape }}">
+		<div data-role="header" class="">
+			<h1>{{ post.title }}</h1>
+		</div>
+		<div data-role="content" class="">
+			<p class="meta">{{ post.date | date_to_string }}</p>
+			{{ post.content }}
+		</div>
+	</div>
+
+	<!-- tests -->
+	<!-- {{ post.content | markdownify }}  -->
+	<!-- {{ post | jsonify }} -->
+	<!-- {{ post | content }} -->
+	<!-- end tests -->
+<!-- end post -->
