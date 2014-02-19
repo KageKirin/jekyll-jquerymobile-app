@@ -3,33 +3,9 @@ layout: default
 title: Your New Jekyll Site
 ---
 
-<!-- external header -->
-<div data-role="header" data-position="fixed" data-theme="a">
-	<h1>{{ site.name }}</h1>
-	<a href="#outside" data-icon="bars" data-iconpos="notext">Menu</a>
-	<!--
-	<div data-role="navbar">
-		<ul>
-			<li><a href="#mainPage">Main page</a></li>
-			{% for post in site.posts %}
-			<li><a href="#{{ post.id | cgi_escape }}">{{ post.title }}</a></li>
-			{% endfor %}
-		</ul>
-	</div>
-	-->
-</div>
+{% include header.html %}
 
-<!-- external panel -->
-<div data-role="panel" id="outside" data-theme="b">
-	<h1>Menu panel</h1>
-	<ul data-role="listview">
-		<li data-icon="back"><a href="#" data-rel="close">Close</a></li>
-		<li><a href="#mainPage">Main page</a></li>
-		{% for post in site.posts %}
-		<li><a href="#{{ post.id | cgi_escape }}">{{ post.title }}</a></li>
-		{% endfor %}
-	</ul>
-</div>
+{% include menu_panel.html %}
 
 <!-- main page -->
 <div data-role="page" class="" id="mainPage">
@@ -41,18 +17,4 @@ title: Your New Jekyll Site
 	</div>
 </div>
 
-<!-- pages from site.posts -->
-
-{% for post in site.posts %}
-	<div data-role="page" class="" id="{{ post.id | cgi_escape }}">
-		<div data-role="header" class="">
-			<h1>{{ post.title }}</h1>
-		</div>
-		<div data-role="content" class="">
-			<p class="meta">{{ post.date | date_to_string }}</p>
-			{{ post.content }}
-		</div>
-	</div>
-<!-- include {{post.path}}  -->
-{% endfor %}
-<!-- end pages from site.posts -->
+{% include all_posts.html %}
