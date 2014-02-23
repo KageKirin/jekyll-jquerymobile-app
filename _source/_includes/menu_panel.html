@@ -5,7 +5,12 @@
 		<li data-icon="back"><a href="#" data-rel="close">Close</a></li>
 		<li><a href="#mainPage">Main page</a></li>
 		{% for post in site.posts %}
-		<li><a href="#{{ post.id | cgi_escape }}">{{ post.title }}</a></li>
+			<li><a href="#{{ post | slug }}">{{ post.title }}</a></li>
+		<!-- slug: {{ post | slug }} -->
+		<!-- cgi_escape: {{ post.id | cgi_escape }} -->
+		<!-- cdata_escape: {{ post.id | cdata_escape }} -->
+		<!-- sha1 {{ post.id | sha1 }} -->
+		<!-- sha1:23 {{ post.id | sha1:23 }} -->
 		{% endfor %}
 	</ul>
 </div>
